@@ -20,6 +20,13 @@ describe('RestaurantComponent', () => {
       declarations: [RestaurantComponent],
       providers: [RestaurantService]
     });
+    TestBed.overrideComponent(RestaurantComponent, {
+      set: {
+        providers: [
+          { provide: RestaurantService, useClass: MockRestaurantService }
+        ]
+      }
+    })
     component = TestBed.createComponent(RestaurantComponent).componentInstance;
     restaurantService = TestBed.get(RestaurantService);
     spyOn(restaurantService, 'getRestaurants').and.returnValue(Observable.of(mockResponse));
