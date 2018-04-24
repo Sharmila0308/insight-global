@@ -1,0 +1,21 @@
+<form>
+  <div class="form-group">
+    <label for="city">Enter City</label>
+    <input id="city" name="city" type="text" [(ngModel)]="city" class="form-control">
+  </div>
+  <button class="btn btn-primary" (click)="getRestaurants()">Submit</button>
+</form>
+<div id="restaurant-list-section">
+  <div class="media restaurant-list-item" *ngFor="let restaurant of restaurants">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" [src]="restaurant.image_url" [alt]="restaurant.name">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{restaurant.name}}</h4>
+      <p>{{restaurant.address}}</p>
+      <p>{{restaurant.price}}</p>
+    </div>
+  </div>
+</div>
